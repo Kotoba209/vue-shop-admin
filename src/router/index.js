@@ -9,6 +9,7 @@ const Users = () => import(/* webpackChunkName: "Users_Rights_Roles" */ '../view
 const Rights = () => import(/* webpackChunkName: "Users_Rights_Roles" */ '../views/power/Rights.vue')
 // import Roles from './components/power/Roles.vue'
 const Roles = () => import(/* webpackChunkName: "Users_Rights_Roles" */ '../views/power/Roles.vue')
+const Cate = () => import(/* webpackChunkName: "Cate_Params" */ '../views/goods/Cate.vue')
 
 Vue.use(VueRouter)
 
@@ -23,8 +24,8 @@ const routes = [
       { path: '/welcome', component: Welcome },
       { path: '/users', component: Users },
       { path: '/rights', component: Rights },
-      { path: '/roles', component: Roles }
-    //   { path: '/categories', component: Cate },
+      { path: '/roles', component: Roles },
+      { path: '/categories', component: Cate }
     //   { path: '/params', component: Params },
     //   { path: '/goods', component: GoodsList },
     //   { path: '/goods/add', component: Add },
