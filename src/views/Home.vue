@@ -3,29 +3,56 @@
     <!-- 头部 -->
     <el-header>
       <div>
-        <img src="../assets/logo.png" alt />
+        <img
+          src="../assets/logo.png"
+          alt
+        />
         <span>电商后台管理系统</span>
       </div>
-      <el-button type="info" @click="logout">退出</el-button>
+      <el-button
+        type="info"
+        @click="logout"
+      >退出</el-button>
     </el-header>
     <!-- 主体 -->
     <el-container>
       <!-- 侧边栏 -->
       <el-aside :width="isCollapse ? '64px' : '200px'">
-        <div class="toggle-button" @click="togleCollapse">|||</div>
-        <el-menu unique-opened :collapse="isCollapse" :collapse-transition="false" router :default-active="activePath" background-color="#333744" text-color="#fff" active-text-color="#409FFF">
-           <!-- :unique-opened="true"->只允许展开一个菜单 -->
-           <!-- :collapse-transition="false" -> 关闭动画 -->
-           <!-- router -> 导航开启路由模式 -->
+        <div
+          class="toggle-button"
+          @click="togleCollapse"
+        >|||</div>
+        <el-menu
+          unique-opened
+          :collapse="isCollapse"
+          :collapse-transition="false"
+          router
+          :default-active="activePath"
+          background-color="#333744"
+          text-color="#fff"
+          active-text-color="#409FFF"
+        >
+          <!-- :unique-opened="true"->只允许展开一个菜单 -->
+          <!-- :collapse-transition="false" -> 关闭动画 -->
+          <!-- router -> 导航开启路由模式 -->
           <!-- 一级菜单  -->
-          <el-submenu :index="item.id+''" v-for="item in menuList" :key="item.id" >
+          <el-submenu
+            :index="item.id+''"
+            v-for="item in menuList"
+            :key="item.id"
+          >
             <!-- 一级菜单的模板区域 -->
             <template slot="title">
               <i :class="iconObj[item.id]"></i>
               <span>{{ item.authName}}</span>
             </template>
             <!-- 二级菜单 -->
-            <el-menu-item :index="'/' + subItem.path" v-for="subItem in item.children" :key="subItem.id" @click="saveNavState('/' + subItem.path)">
+            <el-menu-item
+              :index="'/' + subItem.path"
+              v-for="subItem in item.children"
+              :key="subItem.id"
+              @click="saveNavState('/' + subItem.path)"
+            >
               <!-- 导航开启路由模式：
                 将index值作为导航路由 -->
               <!-- 二级菜单的模板区域 -->
@@ -47,7 +74,7 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       // 左侧菜单数据
       menuList: [],
@@ -64,29 +91,29 @@ export default {
       activePath: ''
     }
   },
-  created () {
+  created() {
     this.getMenuList()
     this.activePath = window.sessionStorage.getItem('activePath')
   },
   methods: {
-    logout () {
+    logout() {
       // 清空token
       window.sessionStorage.clear()
       this.$router.push('/login')
     },
     // 获取请求菜单
-    async getMenuList () {
+    async getMenuList() {
       const { data: res } = await this.$http.get('menus')
       if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
       this.menuList = res.data
       // console.log(res)
     },
     // 菜单的折叠与展开
-    togleCollapse () {
+    togleCollapse() {
       this.isCollapse = !this.isCollapse
     },
     // 保存连接的激活地址
-    saveNavState (activePath) {
+    saveNavState(activePath) {
       window.sessionStorage.setItem('activePath', activePath)
     }
   }
@@ -126,11 +153,11 @@ export default {
 .el-main {
   background-color: #eaedf1;
 }
-.iconfont{
+.iconfont {
   margin-right: 10px;
 }
 .toggle-button {
-  background-color: #4A5064;
+  background-color: #4a5064;
   font-size: 10px;
   line-height: 24px;
   color: #fff;

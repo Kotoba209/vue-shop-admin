@@ -1,15 +1,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 const Login = () => import(/* webpackChunkName: "Login_Home_Welcome" */ '../views/Login.vue')
-// import Home from './components/Home.vue'
 const Home = () => import(/* webpackChunkName: "login_home_welcome" */ '../views/Home.vue')
-// import Welcome from './components/Welcome.vue'
 const Welcome = () => import(/* webpackChunkName: "login_home_welcome" */ '../views/Welcome.vue')
 const Users = () => import(/* webpackChunkName: "Users_Rights_Roles" */ '../views/user/Users.vue')
 const Rights = () => import(/* webpackChunkName: "Users_Rights_Roles" */ '../views/power/Rights.vue')
-// import Roles from './components/power/Roles.vue'
 const Roles = () => import(/* webpackChunkName: "Users_Rights_Roles" */ '../views/power/Roles.vue')
 const Cate = () => import(/* webpackChunkName: "Cate_Params" */ '../views/goods/Cate.vue')
+const Params = () => import(/* webpackChunkName: "Cate_Params" */ '../views/goods/Params.vue')
+const GoodsList = () => import(/* webpackChunkName: "GoodsList_Add" */ '../views/goods/List.vue')
+const Add = () => import(/* webpackChunkName: "GoodsList_Add" */ '../views/goods/Add.vue')
+const Order = () => import(/* webpackChunkName: "Order_Report" */ '../views/order/Order.vue')
+const Report = () => import(/* webpackChunkName: "Order_Report" */ '../views/report/Report.vue')
 
 Vue.use(VueRouter)
 
@@ -25,12 +27,12 @@ const routes = [
       { path: '/users', component: Users },
       { path: '/rights', component: Rights },
       { path: '/roles', component: Roles },
-      { path: '/categories', component: Cate }
-    //   { path: '/params', component: Params },
-    //   { path: '/goods', component: GoodsList },
-    //   { path: '/goods/add', component: Add },
-    //   { path: '/orders', component: Order },
-    //   { path: '/reports', component: Report }
+      { path: '/categories', component: Cate },
+      { path: '/params', component: Params },
+      { path: '/goods', component: GoodsList },
+      { path: '/goods/add', component: Add },
+      { path: '/orders', component: Order },
+      { path: '/reports', component: Report }
     ]
   }
 ]

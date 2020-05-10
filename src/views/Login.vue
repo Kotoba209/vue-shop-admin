@@ -3,7 +3,10 @@
     <div class="login_box">
       <!-- 头像区 -->
       <div class="avatar_box">
-        <img src="../assets/logo.png" alt="avatar" />
+        <img
+          src="../assets/logo.png"
+          alt="avatar"
+        />
       </div>
       <!-- 登录表单 -->
       <div>
@@ -14,10 +17,19 @@
           label-width="60px"
           class="login_form"
         >
-          <el-form-item label="账号" prop="username">
-            <el-input v-model="loginForm.username" prefix-icon="iconfont icon-user"></el-input>
+          <el-form-item
+            label="账号"
+            prop="username"
+          >
+            <el-input
+              v-model="loginForm.username"
+              prefix-icon="iconfont icon-user"
+            ></el-input>
           </el-form-item>
-          <el-form-item label="密码" prop="password">
+          <el-form-item
+            label="密码"
+            prop="password"
+          >
             <el-input
               v-model="loginForm.password"
               type="password"
@@ -25,8 +37,14 @@
             ></el-input>
           </el-form-item>
           <el-form-item class="btns">
-            <el-button type="primary" @click="login">登录</el-button>
-            <el-button type="info" @click="resetLoginForm">重置</el-button>
+            <el-button
+              type="primary"
+              @click="login"
+            >登录</el-button>
+            <el-button
+              type="info"
+              @click="resetLoginForm"
+            >重置</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -36,7 +54,7 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       loginForm: {
         username: 'admin',
@@ -57,12 +75,12 @@ export default {
   },
   methods: {
     // 表单重置按钮
-    resetLoginForm () {
+    resetLoginForm() {
       // console.log(this)
       // resetFields：element-ui提供的表单方法
       this.$refs.loginFormRef.resetFields()
     },
-    login () {
+    login() {
       // 表单预验证
       // valid：bool类型
       this.$refs.loginFormRef.validate(async valid => {
